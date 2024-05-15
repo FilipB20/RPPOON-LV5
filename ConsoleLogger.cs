@@ -20,9 +20,9 @@ namespace LV5
             return instance;
         }
 
-        public void Log(string message)
+        public void Log(string message,DateTime accessTime)
         {
-            Console.Write(message);
+            Console.Write($"{message} {accessTime}\n");
         }
     }
 }

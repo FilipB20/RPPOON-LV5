@@ -20,12 +20,13 @@
             Console.Read();*/
 
             VirtualProxyDataset virtualProxyDataset = new VirtualProxyDataset("brojevi.csv");
+            LoggingProxy loggingProxy=new LoggingProxy(virtualProxyDataset);
             ProtectionProxyDataset protectionProxyDataset = new ProtectionProxyDataset(User.GenerateUser("Filip"));
-
+            LoggingProxy loggingProxy2=new LoggingProxy(protectionProxyDataset);
             DataConsolePrinter printer = new DataConsolePrinter();
 
-            printer.Print(virtualProxyDataset);
-            printer.Print(protectionProxyDataset);
+            printer.Print(loggingProxy);
+            printer.Print(loggingProxy2);
             Console.Read();
 
         }
