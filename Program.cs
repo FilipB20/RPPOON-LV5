@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            /*Product product1 = new Product("opis", 2.5, 5);
+            /* TEST 1,2
+             * Product product1 = new Product("opis", 2.5, 5);
             Product product2 = new Product("opis2", 22.5, 55);
 
             Box box = new Box("Prva kutija");
@@ -19,7 +20,8 @@
             Console.Write(shippingService.CalculateShippingFee(box));
             Console.Read();*/
 
-            VirtualProxyDataset virtualProxyDataset = new VirtualProxyDataset("brojevi.csv");
+            /* TEST 3,4
+             * VirtualProxyDataset virtualProxyDataset = new VirtualProxyDataset("brojevi.csv");
             LoggingProxy loggingProxy=new LoggingProxy(virtualProxyDataset);
             ProtectionProxyDataset protectionProxyDataset = new ProtectionProxyDataset(User.GenerateUser("Filip"));
             LoggingProxy loggingProxy2=new LoggingProxy(protectionProxyDataset);
@@ -27,6 +29,32 @@
 
             printer.Print(loggingProxy);
             printer.Print(loggingProxy2);
+            Console.Read();*/
+
+
+            // TEST 5,6,7
+            LightTheme lightTheme=new LightTheme();
+            GrayTheme grayTheme=new GrayTheme();
+            grayTheme.SetBackgroundColor();
+            grayTheme.SetFontColor();
+            Console.Write($"zadatak 5:{grayTheme.GetHeader(1)},{grayTheme.GetFooter(1)}");
+
+            Notebook notebook=new Notebook(lightTheme);
+            notebook.ChangeTheme(lightTheme);
+            ReminderNote reminderNote = new ReminderNote("Kolokvij", lightTheme);
+            ReminderNote reminderNote2 = new ReminderNote("Labos", grayTheme);
+            GroupNote groupNote=new GroupNote("Seminar",lightTheme);
+            groupNote.Add("Filip");
+            groupNote.Add("Josip");
+            groupNote.Show();
+
+
+            notebook.AddNote(reminderNote);
+            notebook.AddNote( reminderNote2);
+            notebook.Display();
+            notebook.ChangeTheme(grayTheme);
+            notebook.Display();
+
             Console.Read();
 
         }
