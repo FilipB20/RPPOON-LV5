@@ -9,10 +9,12 @@ namespace LV5
 {
     class DataConsolePrinter
     {
-        ReadOnlyCollection<List<string>> data;
+        
         public void Print(IDataset dataset)
         {
-            data = dataset.GetData();
+            ReadOnlyCollection<List<string>> data = dataset.GetData();
+            if (data == null) { return; }
+
             foreach (var list in data)
             {
                 foreach (var str in list)

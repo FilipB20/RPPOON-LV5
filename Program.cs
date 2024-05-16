@@ -4,9 +4,10 @@
     {
         static void Main(string[] args)
         {
-            /* TEST 1,2
-             * Product product1 = new Product("opis", 2.5, 5);
-            Product product2 = new Product("opis2", 22.5, 55);
+            // TEST 1,2
+
+            Product product1 = new Product("Opis producta", 2.5, 5);
+            Product product2 = new Product("Opis drugog producta", 22.5, 55);
 
             Box box = new Box("Prva kutija");
             Box box2 = new Box("Druga kutija");
@@ -17,44 +18,52 @@
 
             ShippingService shippingService = new ShippingService(1.5);
 
-            Console.Write(shippingService.CalculateShippingFee(box));
-            Console.Read();*/
+            Console.Write($"{box.Description()} Weight:{box.Weight} Price:{box.Price}\n");
+            Console.Write("Shipping fee:"+shippingService.CalculateShippingFee(box)+"\n");
 
-            /* TEST 3,4
-             * VirtualProxyDataset virtualProxyDataset = new VirtualProxyDataset("brojevi.csv");
+
+            // TEST 3,4
+
+            VirtualProxyDataset virtualProxyDataset = new VirtualProxyDataset("brojevi.csv");
             LoggingProxy loggingProxy=new LoggingProxy(virtualProxyDataset);
-            ProtectionProxyDataset protectionProxyDataset = new ProtectionProxyDataset(User.GenerateUser("Filip"));
-            LoggingProxy loggingProxy2=new LoggingProxy(protectionProxyDataset);
-            DataConsolePrinter printer = new DataConsolePrinter();
 
+            ProtectionProxyDataset protectionProxyDataset = new ProtectionProxyDataset(User.GenerateUser("Filip"));
+            ProtectionProxyDataset unauthorizedProtectionProxyDataset = new ProtectionProxyDataset(User.GenerateUser("Josip"));
+
+            LoggingProxy loggingProxy2 =new LoggingProxy(protectionProxyDataset);
+            LoggingProxy unauthorizedLoggingProxy2 = new LoggingProxy(unauthorizedProtectionProxyDataset);
+
+            DataConsolePrinter printer = new DataConsolePrinter();
             printer.Print(loggingProxy);
             printer.Print(loggingProxy2);
-            Console.Read();*/
-
+            printer.Print(unauthorizedLoggingProxy2);
+            Console.Write("\n");
 
             // TEST 5,6,7
+
             LightTheme lightTheme=new LightTheme();
             GrayTheme grayTheme=new GrayTheme();
             grayTheme.SetBackgroundColor();
             grayTheme.SetFontColor();
-            Console.Write($"zadatak 5:{grayTheme.GetHeader(1)},{grayTheme.GetFooter(1)}");
 
             Notebook notebook=new Notebook(lightTheme);
             notebook.ChangeTheme(lightTheme);
             ReminderNote reminderNote = new ReminderNote("Kolokvij", lightTheme);
             ReminderNote reminderNote2 = new ReminderNote("Labos", grayTheme);
             GroupNote groupNote=new GroupNote("Seminar",lightTheme);
+
             groupNote.Add("Filip");
             groupNote.Add("Josip");
             groupNote.Show();
 
 
             notebook.AddNote(reminderNote);
-            notebook.AddNote( reminderNote2);
-            notebook.Display();
-            notebook.ChangeTheme(grayTheme);
+            notebook.AddNote(reminderNote2);
+            notebook.AddNote(groupNote);
             notebook.Display();
 
+            notebook.ChangeTheme(grayTheme);
+            notebook.Display();
             Console.Read();
 
         }

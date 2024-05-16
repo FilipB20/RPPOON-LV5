@@ -28,11 +28,12 @@ namespace LV5
         public override void Show()
         {
             this.ChangeColor();
-            Console.Write("Group:\n");
+            Console.Write($"Group:");
             foreach(string name in names)
             {
                 Console.Write(name+" ");
             }
+            Console.Write("\n");
             string framedMessage = this.GetFramedMessage();
             Console.WriteLine(framedMessage);
             Console.ResetColor();

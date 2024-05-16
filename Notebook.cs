@@ -9,14 +9,14 @@ namespace LV5
     class Notebook
     {
         private List<Note> notes;
-        ITheme theme;
+        ITheme defaultTheme;
         public Notebook(ITheme theme)
         { 
-            this.theme = theme;
+            this.defaultTheme = theme;
             this.notes = new List<Note>();
         }
         public void AddNote(Note note) { 
-            note.Theme= theme;
+            note.Theme= defaultTheme;
             this.notes.Add(note); 
         }
         public void ChangeTheme(ITheme theme)

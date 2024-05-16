@@ -10,8 +10,6 @@ namespace LV5
     class LoggingProxy : IDataset
     {
         IDataset data;
-        ConsoleLogger consoleLogger = ConsoleLogger.GetInstance();
-
         public LoggingProxy(IDataset data)
         {
             this.data = data;
@@ -19,7 +17,7 @@ namespace LV5
 
         public ReadOnlyCollection<List<string>> GetData()
         {
-            consoleLogger.Log("Pristup podacima:",DateTime.Now);
+            ConsoleLogger.GetInstance().Log("Pristup podacima:"+DateTime.Now+"\n");
             return data.GetData();
         }
     }

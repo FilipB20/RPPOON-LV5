@@ -14,7 +14,7 @@ namespace LV5
         }
         public void SetFontColor()
         {
-            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Red;
         }
         public string GetHeader(int width)
         {
